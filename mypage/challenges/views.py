@@ -32,7 +32,16 @@ def month_by_name(request, month):
         return HttpResponse(response_data)
     except ValueError:
         return HttpResponseNotFound("Month not recognised")
+    
+def month_list(request):
+    return HttpResponse("all months")
 
 
 def index(request):
-    return HttpResponse("working!")
+    list_items = ""
+    months = list(monthly.keys())
+    for month in months:
+        month_path = reverse("monthly", args=[month])
+        list_items += f"<li><a href=\"{month_path}\">{month}</a></li>"
+    response_data = f"<ul>{list_items}</ul>"
+    return HttpResponse(response_data)
