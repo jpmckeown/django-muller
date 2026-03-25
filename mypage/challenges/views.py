@@ -1,6 +1,7 @@
 # from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
+from django.template.loader import render_to_string
 
 monthly = {
     "jan": "Januaury is coolest",
@@ -26,13 +27,15 @@ def month_by_number(request, month):
 
 
 def month_by_name(request, month):
-    try:
+    # try:
         msg = monthly[month]
-        response_data = f"<h1>{msg}</h1>"
+        response_data = render_to_string("challenges/challenge.html")
+        # response_data = f"<h1>{msg}</h1>"
         return HttpResponse(response_data)
-    except ValueError:
-        return HttpResponseNotFound("Month not recognised")
-    
+    # except ValueError:
+    #     return HttpResponseNotFound("Month not recognised")
+
+
 def month_list(request):
     return HttpResponse("all months")
 
