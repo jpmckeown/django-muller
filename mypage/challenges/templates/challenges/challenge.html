@@ -7,6 +7,10 @@
 </head>
 <body>
     <h1>Weather in month of {{ month|title }}</h1>
-    <h2>{{ text }}</h2>
+    {% if text is not None %}
+        <h2>{{ text }}</h2>
+    {% else %}
+        <h2>No weather defined for this month yet</h2>
+    {% endif %}
 </body>
 </html>

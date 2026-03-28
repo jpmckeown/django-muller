@@ -14,7 +14,8 @@ monthly = {
     "aug": "August may be too hot in afternoon",
     "sep": "September is usually pleasant",
     "oct": "October is cooler and good",
-    
+    "nov": None,
+    "dec": None,
 }
 
 
