@@ -29,7 +29,10 @@ def month_by_number(request, month):
 def month_by_name(request, month):
     try:
         msg = monthly[month]
-        return render(request, "challenges/challenge.html")
+        return render(request, "challenges/challenge.html", {
+            "month": month,
+            "text": msg,
+        })
         # shortcut render replaces 2 lines
         # response_data = render_to_string("challenges/challenge.html")
         # return HttpResponse(response_data)
