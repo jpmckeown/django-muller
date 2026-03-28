@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.template.loader import render_to_string
 
 monthly = {
-    "jan": "Januaury is coolest",
+    "jan": "January is coldest",
     "feb": "February is friendly",
     "mar": "March can be rainy",
     "apr": "April is a new life at Easter",
@@ -12,7 +12,9 @@ monthly = {
     "jun": "June is too hot in afternoon",
     "jul": "July is often too hot in morning",
     "aug": "August may be too hot in afternoon",
-    "sep": "September is usually pleasant"
+    "sep": "September is usually pleasant",
+    "oct": "October is cooler and good",
+    
 }
 
 
@@ -45,10 +47,15 @@ def month_list(request):
 
 
 def index(request):
-    list_items = ""
+    # list_items = ""
     months = list(monthly.keys())
-    for month in months:
-        month_path = reverse("monthly", args=[month])
-        list_items += f"<li><a href=\"{month_path}\">{month}</a></li>"
-    response_data = f"<ul>{list_items}</ul>"
-    return HttpResponse(response_data)
+
+    return render(request, "challenges/index.html", {
+        "months": months,
+    })
+
+    # for month in months:
+    #     month_path = reverse("monthly", args=[month])
+    #     list_items += f"<li><a href=\"{month_path}\">{month}</a></li>"
+    # response_data = f"<ul>{list_items}</ul>"
+    # return HttpResponse(response_data)
