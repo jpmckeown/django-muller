@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ month|title }} weather</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}{{ month|title }} weather{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{% static "challenges/challenges.css" %}">{% endblock %}
+
+{% block content %}
     <h1>Weather in month of {{ month|title }}</h1>
     {% if text is not None %}
         <h2>{{ text }}</h2>
     {% else %}
         <h2>No weather defined for this month yet</h2>
     {% endif %}
-</body>
-</html>
+{% endblock %}

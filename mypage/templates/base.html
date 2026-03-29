@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>{% block page_title %}Default Title{% endblock %}</title>
-    <link rel="stylesheet" href="{% static "styles.css" %}">
-    {% block css%}{% endblock %}
+    {% comment %} <link rel="stylesheet" href="{% static "styles.css" %}"> Must not nest double-quotes {% endcomment %}
+    {% block css %}<link rel="stylesheet" href="{% static 'styles.css' %}">{% endblock %}
 </head>
 <body>
     {% block content %}{% endblock %}
