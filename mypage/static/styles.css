@@ -10,9 +10,25 @@
 html {
     font-family: 'Roboto', sans-serif;
     font-size: 1.5em;
+    border: 1px solid red;
 }
-
+body{
+    background-color: yellow;
+}
 ul {
     list-style: none;
     font-size: 2em;
+    width: 90%;
+    max-width: 20 rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+li {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
 }
