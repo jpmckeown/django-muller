@@ -9,4 +9,4 @@ class Book(models.Model):
     # id = models.AutoField() # automatically added by Django
 
     def __str__(self):
-        return f"{self.title} ({self.rating})"
+        return f"{self.title} by {self.author} ({self.rating})"
