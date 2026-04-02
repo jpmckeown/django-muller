@@ -6,5 +6,8 @@ def index(request):
     return render(request, 'blog/index.html')
     # return HttpResponse('index')
 
+def allposts(request):
+    return render(request, 'blog/all-posts.html')
+
 def post(request):
     return HttpResponse('one post')

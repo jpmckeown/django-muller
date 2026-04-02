@@ -10,16 +10,10 @@ Patrick's Blog
 {% endblock %}
 
 {% block content %}
-<header id="main-navigation">
-  <h1><a href="">Patrick Blog welcome</a></h1>
-  <nav>
-    <a href="">All Posts</a>
-  </nav>
-</header>
 
 <section id="welcome">
   <header>
-    <img src="" alt="Max - The Author Of This Blog" />
+    <img src="{% static "blog/images/max.png" %}" alt="Max - The Author Of This Blog" />
     <h2>Blog</h2>
   </header>
   <p>Hi, I am Patrick and I might blog about history</p>
@@ -32,7 +26,7 @@ Patrick's Blog
     <li>
       <article class="post">
         <a href="">
-          <img src="" alt="Mountain Hiking" />
+          <img src="{% static "blog/images/mountains.jpg" %}" alt="Mountain Hiking" />
           <div class="post__content">
             <h3>Mountain Hiking</h3>
             <p>

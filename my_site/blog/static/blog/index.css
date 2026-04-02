@@ -12,7 +12,7 @@
 
 #main-navigation a {
   text-decoration: none;
-  color: white;
+  color: green;
   font-weight: bold;
 }
 
@@ -23,7 +23,7 @@
 
 #main-navigation h1 a:hover,
 #main-navigation h1 a:active {
-  color: white;
+  color: purple;
 }
 
 #welcome {
@@ -57,7 +57,7 @@
 }
 
 #welcome p {
-  color: white;
+  color: blue;
   font-size: 1.5rem;
 }
 
@@ -120,7 +120,7 @@
 .post a:active {
   transform: scale(1.1);
   background-color: #390281;
-  color: white;
+  color: yellow;
 }
 
 .post img {
@@ -143,5 +143,5 @@
 
 .post:hover time,
 .post:active time {
-  color: white;
+  color: yellow;
 }
