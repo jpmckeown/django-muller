@@ -11,7 +11,6 @@ Patrick's Blog
 {% endblock %}
 
 {% block content %}
-
 <section id="welcome">
   <header>
     <img src="{% static "blog/images/max.png" %}" alt="Max - The Author Of This Blog" />
@@ -21,35 +20,21 @@ Patrick's Blog
 </section>
 
 <section id="latest-posts">
-  <h2>My Latest Thoughts</h2>
+  <h2>Recent Posts</h2>
 
   <ul>
-    <li>
-      <article class="post">
-        <a href="">
-          <img src="{% static "blog/images/mountains.jpg" %}" alt="Mountain Hiking" />
-          <div class="post__content">
-            <h3>Mountain Hiking</h3>
-            <p>
-              There's nothing like the views you get when hiking in the
-              mountains! And I wasn't even prepared for what happened whilst I
-              was enjoying the view!
-            </p>
-          </div>
-        </a>
-      </article>
-    </li>
+    {% include "blog/includes/post.html" %}
+    {% include "blog/includes/post.html" %}
   </ul>
 </section>
 
 <section id="about">
   <h2>What I Do</h2>
   <p>
-    I love programming, I love to help others and I enjoy exploring new
-    technologies in general!
+    I love programming and I enjoy exploring new technologies!
   </p>
   <p>
-    My goal is to keep on growing as a developer - and if I could help you do
+    My goal is to keep on growing as a developer, and if I could help you do
     the same, I'd be very happy!
   </p>
 </section>
