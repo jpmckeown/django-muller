@@ -4,6 +4,14 @@ from django.urls import reverse
 from django.utils.text import slugify
 import re
 
+class Author(models.Model):
+    first_name = models.CharField(max_length=80)
+    last_name = models.CharField(max_length=80)
+
+    def __str__(self):
+        return f"{self.last_name}, {self.first_name}"
+
+
 class Book(models.Model):
     title = models.CharField(max_length=50)
     author = models.CharField(null=True, max_length=50)
