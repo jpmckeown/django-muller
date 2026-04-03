@@ -5,10 +5,10 @@ from django.utils.text import slugify
 import re
 
 class Book(models.Model):
-    author = models.CharField(null=True, max_length=50)
     title = models.CharField(max_length=50)
+    author = models.CharField(null=True, max_length=50)
     rating = models.IntegerField(null=True, validators=[MinValueValidator(1), MaxValueValidator(5)])
-    slug = models.SlugField(default='', null=False, blank=True)
+    slug = models.SlugField(default='', null=False, blank=True, editable=False)
     # id = models.AutoField() # automatically added by Django
 
     @staticmethod
