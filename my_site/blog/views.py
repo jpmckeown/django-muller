@@ -81,4 +81,7 @@ def allposts(request):
     return render(request, 'blog/all-posts.html', {"posts": all_posts})
 
 def onepost(request, slug):
-    return render(request, "blog/onepost.html")
+    chosen_post = next(x for x in all_posts if x['slug']==slug)
+    return render(request, "blog/onepost.html", {
+        "post": chosen_post
+    })
