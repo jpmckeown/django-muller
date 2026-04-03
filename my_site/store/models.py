@@ -8,7 +8,7 @@ class Book(models.Model):
     author = models.CharField(null=True, max_length=50)
     title = models.CharField(max_length=50)
     rating = models.IntegerField(null=True, validators=[MinValueValidator(1), MaxValueValidator(5)])
-    slug = models.SlugField(default='', null=False)
+    slug = models.SlugField(default='', null=False, blank=True)
     # id = models.AutoField() # automatically added by Django
 
     @staticmethod
@@ -17,7 +17,7 @@ class Book(models.Model):
         return slugify(stripped)
     
     def get_absolute_url(self):
-        return reverse("detail", args=[self.id])
+        return reverse("detail", args=[self.slug])
     # reverse("model_detail", kwargs={"pk": self.pk})
 
     def save(self, *args, **kwargs):

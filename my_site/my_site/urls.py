@@ -16,10 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import JsonResponse
 
 urlpatterns = [
+    path('.well-known/appspecific/com.chrome.devtools.json', lambda r: JsonResponse({})),
     path('admin/', admin.site.urls),
     path('store/', include('store.urls')),
     path('', include('blog.urls')),
-    # path('blog/', include('blog.urls'))
+    path('blog/', include('blog.urls'))
 ]

@@ -5,10 +5,13 @@
 {% block content %}
     <ul>
         {% for book in books %}
-        <li><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></li>
+        <li><a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{ book.rating }})</li>
         {% comment %} 'detail' is name of url 
         <li><a href="{% url 'detail' book.id %}">{{ book.title }}</a></li>
         {% endcomment %}
         {% endfor %}
     </ul>
+    <p>Total Number Of Books: {{ total_number_of_books }}</p>
+    <p>Average Rating: {{ average_rating.rating__avg }}</p>
+    <p>Lowest Rating: {{ average_rating.rating__min }}</p>
 {% endblock %}
