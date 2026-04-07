@@ -21,7 +21,6 @@ class Author(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=50)
-    author_str = models.CharField(null=True, max_length=50)
     author = models.ForeignKey(Author, null=True, on_delete=models.SET_NULL, related_name="books")
     rating = models.IntegerField(null=True, validators=[MinValueValidator(1), MaxValueValidator(5)])
     slug = models.SlugField(default='', null=False, blank=True)
@@ -53,4 +52,4 @@ class Book(models.Model):
         super().save(*args, **kwargs)
     
     def __str__(self):
-        return f"{self.title}, by {self.author}. ({self.rating}) {self.slug}"
+        return f"{self.title}, by {self.author} ({self.rating}) {self.slug}"
