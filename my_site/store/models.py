@@ -5,9 +5,17 @@ from django.utils.text import slugify
 import re
 
 
+class Library(models.Model):
+    curator = models.CharField(max_length=80)
+    established = models.DateField()
+
+    def __str__(self):
+        return f"{self.curator} since {self.established}"
+
 class Author(models.Model):
     first_name = models.CharField(max_length=80)
     last_name = models.CharField(max_length=80)
+    library = models.OneToOneField(Library, null=True, on_delete=models.SET_NULL)
 
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
