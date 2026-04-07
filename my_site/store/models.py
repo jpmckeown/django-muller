@@ -67,7 +67,9 @@ class Book(models.Model):
 
     def save(self, *args, **kwargs):
         self.title = self.apply_title_case(self.title)
+        if not self.slug:
+            self.slug = self.slugify_skip_the(self.title)
         super().save(*args, **kwargs)
     
     def __str__(self):
-        return f"{self.title}, by {self.author} ({self.rating}) {self.slug}"
+        return f"{self.title}, by {self.author.first_name} {self.author.last_name} ({self.rating}) {self.slug}"
