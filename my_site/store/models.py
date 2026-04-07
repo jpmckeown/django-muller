@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.utils.text import slugify
 import re
 
+
 class Author(models.Model):
     first_name = models.CharField(max_length=80)
     last_name = models.CharField(max_length=80)
@@ -15,7 +16,7 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=50)
     author_str = models.CharField(null=True, max_length=50)
-    author = models.ForeignKey(Author, null=True, on_delete=models.SET_NULL)
+    author = models.ForeignKey(Author, null=True, on_delete=models.SET_NULL, related_name="books")
     rating = models.IntegerField(null=True, validators=[MinValueValidator(1), MaxValueValidator(5)])
     slug = models.SlugField(default='', null=False, blank=True)
     # id = models.AutoField() # automatically added by Django
