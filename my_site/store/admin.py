@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Book, Author
+from .models import Book, Author, Library
 
 class BookAdmin(admin.ModelAdmin):
     list_filter = ('author', 'rating',)
@@ -13,3 +13,4 @@ class BookAdmin(admin.ModelAdmin):
 
 admin.site.register(Book, BookAdmin)
 admin.site.register(Author)
+admin.site.register(Library)
