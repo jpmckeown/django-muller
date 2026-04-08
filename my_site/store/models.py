@@ -9,6 +9,9 @@ class Country(models.Model):
     name = models.CharField(max_length=80)
     iso = models.CharField(max_length=3)
 
+    def __str__(self):
+        return f"{self.name} {self.iso}"
+
 
 class Library(models.Model):
     curator = models.CharField(max_length=80)
