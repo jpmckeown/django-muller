@@ -11,6 +11,9 @@ class Country(models.Model):
 
     def __str__(self):
         return f"{self.name} {self.iso}"
+    
+    class Meta:
+        verbose_name_plural = "Countries"
 
 
 class Library(models.Model):

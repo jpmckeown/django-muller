@@ -4,6 +4,7 @@ from .models import Book, Author, Library, Country
 class BookAdmin(admin.ModelAdmin):
     list_filter = ('author', 'rating',)
     list_display = ('title', 'author', 'rating', 'slug')
+    filter_horizontal = ('location',)
     class Media:
         js = ('store/admin_book.js',)
     
