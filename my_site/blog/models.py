@@ -23,7 +23,7 @@ class Post(models.Model):
     slug = models.SlugField(unique=True, db_index=True, max_length=80)
     content = models.TextField(validators=[MinLengthValidator(10)])
     author = models.ForeignKey(to=Author, null=True, on_delete=models.SET_NULL, related_name="posts")
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, blank=True)
 
     def __str__(self):
         return f"{self.title}"
