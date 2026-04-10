@@ -14,6 +14,9 @@ class Author(models.Model):
 class Tag(models.Model):
     caption = models.CharField(max_length=40)
 
+    def __str__(self):
+        return f"{self.caption}"
+
 
 class Post(models.Model):
     title = models.CharField(max_length=80)
