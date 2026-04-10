@@ -11,13 +11,13 @@ Patrick's Blog
 {% endblock %}
 
 {% block content %}
-<section id="welcome">
+{% comment %} <section id="welcome">
   <header>
     <img src="{% static "blog/images/max.png" %}" alt="Max - The Author Of This Blog" />
     <h2>Blog</h2>
   </header>
   <p>Hi, my name is Patrick and I might blog about History.</p>
-</section>
+</section> {% endcomment %}
 
 <section id="latest-posts">
   <h2>Recent Posts</h2>
@@ -30,13 +30,9 @@ Patrick's Blog
 </section>
 
 <section id="about">
-  <h2>What I Do</h2>
+  <h2>Banbury</h2>
   <p>
-    I love programming and I enjoy exploring new technologies!
-  </p>
-  <p>
-    My goal is to keep on growing as a developer, and if I could help you do
-    the same, I'd be very happy!
+A blog about historic Banbury and the Cotswolds.
   </p>
 </section>
 {% endblock %}

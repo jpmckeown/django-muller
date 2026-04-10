@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from datetime import date
 
+from .models import Post
+
 all_posts = [
     {
         "slug": "hike-in-the-mountains",
@@ -71,10 +73,12 @@ all_posts = [
 def get_date(post):
     return post.get('date')
 
-# a view must return an HttpResponse not a string
+# a View must return an HttpResponse not a string
+
 def index(request):
-    sorted_posts = sorted(all_posts, key=get_date)
-    latest_posts = sorted_posts[-2:]
+    latest_posts = Post.objects.all().order_by('date')[:3]
+    # sorted_posts = sorted(all_posts, key=get_date)
+    # latest_posts = sorted_posts[-2:]
     return render(request, 'blog/index.html', {"posts": latest_posts})
 
 def allposts(request):
