@@ -5,8 +5,9 @@ class AuthorAdmin(admin.ModelAdmin):
     pass
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title',)
+    list_filter = ('author', 'tags', 'date',)
+    list_display = ('title', 'author', 'date',)
 
 admin.site.register(Author)
-admin.site.register(Post)
+admin.site.register(Post, PostAdmin)
 admin.site.register(Tag)
