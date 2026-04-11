@@ -8,7 +8,7 @@ class Author(models.Model):
     email = models.EmailField(max_length=80)
 
     def __str__(self):
-        return f"{self.first} {self.last} {self.email}"
+        return f"{self.first} {self.last}"
 
 
 class Tag(models.Model):

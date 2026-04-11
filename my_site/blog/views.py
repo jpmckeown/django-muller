@@ -26,5 +26,6 @@ def onepost(request, slug):
     chosen_post = Post.objects.get(slug=slug)
     # chosen_post = next(x for x in all_posts if x['slug']==slug)
     return render(request, "blog/onepost.html", {
-        "post": chosen_post
+        "post": chosen_post,
+        'tags': chosen_post.tags.all()
     })
