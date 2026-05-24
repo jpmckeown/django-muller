@@ -6,9 +6,11 @@
     <title>Feedback review</title>
 </head>
 <body>
-    <form>
-        <label for="username">Your name</label>
-        <input id="username" name="user" type="text"></form>
-        <button>Send</button>
+    <form action="/" method="POST">
+        {% csrf_token %}
+        <label for="user">Your name</label>
+        <input id="user" name="username" type="text">
+        <button type="submit">Send</button>
+    </form>
 </body>
 </html>
