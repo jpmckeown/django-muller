@@ -12,7 +12,10 @@ def feedback(request):
             print(form.cleaned_data)
             return HttpResponseRedirect("/thanks/")
 
-    form = ReviewForm()
+    else:
+        # make new empty form
+        form = ReviewForm()
+
     return render(request, 'feedback/feedback.html', {
         "form": form,
     })
