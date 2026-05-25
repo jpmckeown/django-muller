@@ -7,7 +7,10 @@ from .forms import ReviewForm
 def review(request):
     form = ReviewForm()
 
-    return render(request, 'feedback/feedback.html')
+
+    return render(request, 'feedback/feedback.html', {
+        "form": form,
+    })
 
 
 # manual way
