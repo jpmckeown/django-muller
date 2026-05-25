@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from .forms import ReviewForm 
 
 # Forms class way
-def review(request):
+def feedback(request):
     form = ReviewForm()
 
 
@@ -14,7 +14,7 @@ def review(request):
 
 
 # manual way
-def feedback(request):
+def feedback_manual(request):
     if request.method == 'POST':
         # request holds a dictionary
         entered_username = request.POST['username']
