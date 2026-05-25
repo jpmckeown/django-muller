@@ -8,6 +8,9 @@
 <body>
     <form action="/" method="POST">
         {% csrf_token %}
+        {% if has_error %}
+        <p>Form was invalid, missing username</p>
+        {% endif %}
         <label for="user">Your name</label>
         <input id="user" name="username" type="text">
         <button type="submit">Send</button>
