@@ -116,3 +116,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+LOGGING = {
+    'version': 1,
+    'filters': {
+        'suppress_devtools': {
+            '()': 'django.utils.log.CallbackFilter',
+            'callback': lambda record: '/.well-known' not in record.getMessage(),
+        }
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'filters': ['suppress_devtools'],
+        }
+    },
+    'loggers': {
+        'django.server': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        }
+    }
+}
