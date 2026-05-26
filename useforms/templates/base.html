@@ -1,12 +1,12 @@
-{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanks for feedback</title>
+    <link rel="icon" href="data:,">
+    <title>{% block title %}Feedback{% endblock %}</title>
 </head>
 <body>
-<h1>Thank you!</h1>
+    {% block content %}{% endblock %}
 </body>
 </html>
