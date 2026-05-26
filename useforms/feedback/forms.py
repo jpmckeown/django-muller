@@ -5,7 +5,9 @@ from .models import Review
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
+        # exclude = ["secret"]
         fields = "__all__"
+        labels = {"user_name": "thy Name"}
 
 
 # class ReviewForm(forms.Form):
