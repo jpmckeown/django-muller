@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanks for feedback</title>
-</head>
-<body>
+{% load static %}
+
+{% block title %}Feedback{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "feedback/forms.css" %}">
+{% endblock %}
+
+{% block content %}
 <h1>Thank you!</h1>
-</body>
-</html>
+{% endblock %}
