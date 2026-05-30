@@ -2,12 +2,17 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
 from django.views.generic.edit import FormView
+from django.views.generic.base import TemplateView
 
 from .forms import ReviewForm
 from .models import Review
 
 
-class ThanksView(View):
+class ThanksView(TemplateView):
+    template_name = "feedback/thanks.html"
+
+
+class ThankyouView(View):
     def get(self, request):
         return render(request, "feedback/thanks.html")
 
