@@ -7,7 +7,12 @@ class ReviewForm(forms.ModelForm):
         model = Review
         # exclude = ["secret"]
         fields = "__all__"
-        labels = {"user_name": "thy Name"}
+        labels = {
+            "user_name": "first Name",
+            "review_text": "thy feedback",
+            "rating": "Rate this from 1 to 5",
+        }
+        error_messages = {"user_name": {"required": "dont be missing!"}}
 
 
 # class ReviewForm(forms.Form):
