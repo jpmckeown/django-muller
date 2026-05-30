@@ -9,7 +9,9 @@ from .models import Review
 def feedback(request):
     if request.method == "POST":
         # here after a form was submitted with data
-        form = ReviewForm(request.POST)
+        # how to edit existing object
+        existing_data = Review.objects.get(pk=3)
+        form = ReviewForm(request.POST, instance=existing_data)
 
         if form.is_valid():
             print(form.cleaned_data)
