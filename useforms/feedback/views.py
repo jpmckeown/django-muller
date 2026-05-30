@@ -7,6 +7,15 @@ from .forms import ReviewForm
 from .models import Review
 
 
+class ThanksView(View):
+    def get(self, request):
+        return render(request, "feedback/thanks.html")
+
+
+def thanks(request):
+    return render(request, "feedback/thanks.html")
+
+
 class FeedbackFormView(FormView):
     template_name = "feedback/feedback.html"
     form_class = ReviewForm
@@ -113,7 +122,3 @@ def feedback_manual(request):
         return HttpResponseRedirect("/thanks/")
 
     return render(request, "feedback/feedback.html", {"has_error": False})
-
-
-def thanks(request):
-    return render(request, "feedback/thanks.html")

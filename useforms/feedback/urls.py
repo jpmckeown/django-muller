@@ -4,5 +4,5 @@ from . import views
 urlpatterns = [
     path("", views.FeedbackView.as_view()),
     # path("", views.feedback),
-    path("thanks/", views.thanks),
+    path("thanks/", views.ThanksView.as_view()),
 ]
