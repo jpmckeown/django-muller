@@ -11,6 +11,11 @@ from .models import Review
 class ThanksView(TemplateView):
     template_name = "feedback/thanks.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["message"] = "Its going well"
+        return context
+
 
 class ThankyouView(View):
     def get(self, request):
