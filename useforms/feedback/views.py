@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
 from django.views.generic.edit import FormView
 
@@ -12,9 +12,11 @@ class FeedbackFormView(FormView):
     form_class = ReviewForm
     success_url = "/thanks/"
 
-    def form_valid(self, form):
+    # def form_valid(self, form):
+    def form_valid(self, form: ReviewForm) -> HttpResponse:
         form.save()
-        return super().form_valid(form)
+        response = super().form_valid(form)
+        return response
 
 
 class FeedbackView(View):
