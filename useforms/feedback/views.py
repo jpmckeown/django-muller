@@ -1,9 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views import View
+from django.views.generic.edit import FormView
 
 from .forms import ReviewForm
 from .models import Review
+
+
+class FeedbackFormView(FormView):
+    template_name = "feedback/feedback.html"
+    form_class = ReviewForm
+    success_url = "/thanks/"
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
 
 
 class FeedbackView(View):
@@ -23,6 +34,13 @@ class FeedbackView(View):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect("/thanks/")
+        return render(
+            request,
+            "feedback/feedback.html",
+            {
+                "form": form,
+            },
+        )
 
 
 # ModelForm way
