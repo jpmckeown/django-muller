@@ -5,9 +5,34 @@ from .forms import ReviewForm
 from .models import Review
 
 
-# Forms class way
+# ModelForm way
 def feedback(request):
     if request.method == "POST":
+        # here after a form was submitted with data
+        form = ReviewForm(request.POST)
+
+        if form.is_valid():
+            print(form.cleaned_data)
+            form.save()
+            return HttpResponseRedirect("/thanks/")
+
+    else:
+        # make new empty form
+        form = ReviewForm()
+
+    return render(
+        request,
+        "feedback/feedback.html",
+        {
+            "form": form,
+        },
+    )
+
+
+# forms.Form class way
+def feedback_form(request):
+    if request.method == "POST":
+        # here after a form was submitted with data
         form = ReviewForm(request.POST)
 
         if form.is_valid():
