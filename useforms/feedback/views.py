@@ -3,9 +3,18 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
 from django.views.generic.edit import FormView
 from django.views.generic.base import TemplateView
-
+from django.views.generic import ListView
 from .forms import ReviewForm
 from .models import Review
+
+
+# class expecting a model
+class ReviewsListView(ListView):
+    template_name = "feedback/review_list.html"
+    model = Review
+
+    def get_queryset(self):
+        return super().get_queryset()
 
 
 class DetailsView(TemplateView):
@@ -19,7 +28,7 @@ class DetailsView(TemplateView):
         return context
 
 
-class ReviewsListView(TemplateView):
+class ReviewsListViewT(TemplateView):
     template_name = "feedback/review_list.html"
 
     def get_context_data(self, **kwargs):

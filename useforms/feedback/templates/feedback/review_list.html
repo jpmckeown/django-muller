@@ -2,7 +2,8 @@
 {% block title %}All Review{% endblock %}
 {% block content%}
     <ul>
-    {% for review in reviews %}
+    {% comment class ListView default %} {% for review in reviews %} {% endcomment %}
+    {% for review in object_list %}
         <li><a href="{% url 'one_review' review.id %}">{{ review.user_name }}</a></li>
     {% endfor %}
     </ul>
