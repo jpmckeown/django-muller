@@ -8,6 +8,17 @@ from .forms import ReviewForm
 from .models import Review
 
 
+class DetailsView(TemplateView):
+    template_name = "feedback/one_review.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        review_id = kwargs["id"]
+        one_review = Review.objects.get(pk=review_id)
+        context["review"] = one_review
+        return context
+
+
 class ReviewsListView(TemplateView):
     template_name = "feedback/review_list.html"
 

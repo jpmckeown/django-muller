@@ -3,7 +3,7 @@
 {% block content%}
     <ul>
     {% for review in reviews %}
-        <li>{{ review.user_name }}</li>
+        <li><a href="{% url 'one_review' review.id %}">{{ review.user_name }}</a></li>
     {% endfor %}
     </ul>
 {% endblock %}
