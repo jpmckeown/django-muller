@@ -3,7 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
 from django.views.generic.edit import FormView
 from django.views.generic.base import TemplateView
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
+
 from .forms import ReviewForm
 from .models import Review
 
@@ -12,12 +13,20 @@ from .models import Review
 class ReviewsListView(ListView):
     template_name = "feedback/review_list.html"
     model = Review
+    context_object_name = "reviews"
 
     def get_queryset(self):
-        return super().get_queryset()
+        base = super().get_queryset()
+        data = base.filter(rating__lt=3)
+        return data
 
 
-class DetailsView(TemplateView):
+class DetailsView(DetailView):
+    template_name = "feedback/one_review.html"
+    model = Review
+
+
+class DetailsViewT(TemplateView):
     template_name = "feedback/one_review.html"
 
     def get_context_data(self, **kwargs):
