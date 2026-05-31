@@ -4,6 +4,7 @@
     <ul>
     {% comment class ListView default %} {% for review in reviews %} {% endcomment %}
     {% for review in object_list %}
+    {% comment %} when using class-based ListView "object" or <model-name> is recognised {% endcomment %}
         <li><a href="{% url 'one_review' review.id %}">{{ review.user_name }}</a></li>
     {% endfor %}
     </ul>

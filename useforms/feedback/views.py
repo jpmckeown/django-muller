@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
-from django.views.generic.edit import FormView
+from django.views.generic.edit import FormView, CreateView
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
 
@@ -65,19 +65,29 @@ def thanks(request):
     return render(request, "feedback/thanks.html")
 
 
-class FeedbackFormView(FormView):
+# doesnt need a matching class in forms.py, infers from model
+# optionally can set form_clas to a ModelForm
+class FeedbackView(CreateView):
+    model = Review
+    fields = "__all__"
     template_name = "feedback/feedback.html"
-    form_class = ReviewForm
     success_url = "/thanks/"
 
-    # def form_valid(self, form):
+
+# must use a class in forms.py
+class FeedbackFormView(FormView):
+    form_class = ReviewForm
+    template_name = "feedback/feedback.html"
+    success_url = "/thanks/"
+
+    # method only runs when valid form received - its not a validator!
     def form_valid(self, form: ReviewForm) -> HttpResponse:
         form.save()
         response = super().form_valid(form)
         return response
 
 
-class FeedbackView(View):
+class FeedbackViewV(View):
     def get(self, request):
         # make new empty form
         form = ReviewForm()
