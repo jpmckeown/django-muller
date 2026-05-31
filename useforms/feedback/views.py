@@ -66,7 +66,7 @@ def thanks(request):
 
 
 # doesnt need a matching class in forms.py, infers from model
-# optionally can set form_clas to a ModelForm
+# optionally can define form_class, using ModelForm
 class FeedbackView(CreateView):
     model = Review
     fields = "__all__"
