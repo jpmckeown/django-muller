@@ -2,7 +2,16 @@ from django.test import TestCase
 from .forms import ReviewForm
 
 
-class ReviewFormTest(TestCase):
+class TestReviewForm(TestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.valid_data = {
+            "user_name": "Alice",
+            "review_text": "Great service",
+            "rating": 4,
+        }
+
     def test_valid_form(self):
         form = ReviewForm(
             data={
