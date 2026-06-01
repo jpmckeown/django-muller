@@ -1,6 +1,18 @@
 from django.test import TestCase
-from library.models import Author, Book, Event
+from library.models import Author, Book, Event, Contact
 from model_bakery import baker
+
+
+class TestContactForm(TestCase):
+    def test_can_send_message(self):
+        data = {
+            "first_name": "Juliana",
+            "last_name": " Crain",
+            "message": "Would love to talk about Philip K. Dick",
+        }
+        response = self.client.post("/contact/", data=data)
+        self.assertEqual(Contact.objects.count(), 1)
+        self.assertRedirects(response, "/thanks/")
 
 
 class TestEventModel(TestCase):
