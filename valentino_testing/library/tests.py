@@ -17,8 +17,9 @@ class TestContactForm(TestCase):
 
 class TestEventModel(TestCase):
     def test_event_model(self):
-        event = baker.make(Event, title="The man in the high castle presentation")
-        self.assertEqual(str(event), "The man in the high castle presentation")
+        test_title = "The man in the high castle presentation"
+        event = baker.make(Event, title=test_title)
+        self.assertEqual(str(event), test_title)
 
 
 # 2 models so not a unit test; an integration test
