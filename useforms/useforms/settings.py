@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 # from django.conf.global_settings import MEDIA_ROOT
 
+from django.conf.global_settings import SESSION_COOKIE_AGE
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -117,6 +118,8 @@ STATIC_URL = "static/"
 
 MEDIA_ROOT = BASE_DIR / "uploads"
 MEDIA_URL = "/user-media/"
+
+SESSION_COOKIE_AGE = 120
 
 LOGGING = {
     "version": 1,

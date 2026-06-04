@@ -9,6 +9,12 @@ from .forms import ReviewForm
 from .models import Review
 
 
+class AddFavouriteView(View):
+    def post(self, requests):
+        review_id = requests.POST["review_id"]
+        fav_review = Review.objects.get(pk=review_id)
+
+
 # class expecting a model
 class ReviewsListView(ListView):
     template_name = "feedback/review_list.html"

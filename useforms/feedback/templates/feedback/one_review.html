@@ -3,7 +3,11 @@
 {% block content%}
 <ul>
     <li>{{ review.user_name }}</li>
-    <li>{{ review.rating }}</li>
+    <li>Rating: {{ review.rating }}</li>
     <li>{{ object.review_text }}</li>
 </ul>
+<form action="/feedback/favourite" method="POST">
+    <input type="hidden" name="review_id" value="{{ review.id }}">
+    <button>Favourite</button>
+</form>
 {% endblock %}
