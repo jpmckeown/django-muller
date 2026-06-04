@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponseRedirect
 
+from .forms import ProfileForm
+
 
 def store_file(file):
     with open("temp/pic.png", "wb+") as dest:
@@ -10,6 +12,18 @@ def store_file(file):
 
 
 class CreateProfileView(View):
+    def get(self, request):
+        form = ProfileForm
+        # form = self.form()
+        return render(request, "profiles/create_profile.html", {"form": form})
+
+    def post(self, request):
+        store_file(request.FILES["image"])
+        print(request.FILES["image"])
+        return HttpResponseRedirect("/profiles")
+
+
+class CreateProfileViewManually(View):
     def get(self, request):
         return render(request, "profiles/create_profile.html")
 
